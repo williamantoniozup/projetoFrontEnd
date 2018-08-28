@@ -1,0 +1,129 @@
+
+/*
+.headerMaster{
+    background-color: #013751;
+    padding: 30px;
+    text-align: center;
+    font-size: 35px;
+}*/
+
+.divFaixaAzul{
+    display: flex;
+    background-color: #323c52;
+    top: -8px;
+    margin-left:25px;
+    margin-right:25px;
+    width: 1300px;
+    height: 75px;
+    box-shadow:2px 2px 2px 1px #b9b9b9;
+    float: right;
+}
+.divHeaderLeft{
+    align-self: flex-end; 
+}
+.divHeaderImgLeft{
+}
+
+.divHeaderRight{
+    align-self: center;
+    margin: 30px;
+}
+
+.inputWithIcon input[type=text]{
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    padding-left:40px;
+    padding-top: 5px; 
+    border: 0;
+    outline: 0 none;
+}
+::placeholder{
+    color: #323c52;
+    font-size: large;
+    text-shadow: 0 0.2px 0  #323c52;
+}
+
+.inputWithIcon{
+    position: relative;
+}
+.inputWithIcon i{
+    position: absolute;
+    left: 0;
+    top: -4.5px;
+    padding: 8px 12px;
+}
+
+.divHeaderCenter{
+    display: flex;
+    background-color: #ffffff;
+    padding: 9px;
+    width: 65%;
+    top: 50%;
+    left: auto;
+    bottom: 25px;
+    margin: auto;
+    margin-left:auto;
+    margin-right:auto;
+    vertical-align: -10px;
+    border-radius: 35px;
+}
+
+.menuLateral{
+    display:flex;
+    background-color: rgb(255, 255, 255);
+    height: 1200px;
+    width: 200px;
+    /*margin-left: 30px;*/
+    box-shadow:2px 2px 2px 1px #b9b9b9;
+   
+}
+
+.encapsulaMenuLateral{
+    display:flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    justify-content: flex-start;
+}
+
+#selectAllIcon{
+    color:#868489;
+}
+
+#doneAllIcon{
+    color:#868489;
+}
+
+#deleteIcon{
+    color:#868489;
+}
+
+.itemOne{
+    color:#868489;
+}
+
+.itemTwo{
+    color:#868489;
+}
+.itemThree{
+    color:#868489;
+}
+
+
+
+
+
+/*
+
+.lateralRight{
+    display: flex;
+    height: 1200px;
+    width: 10px;
+    background-color: rgb(219, 2, 2);
+}*/
+
+
+
+
+
+
+
+
