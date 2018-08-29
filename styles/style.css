@@ -2,8 +2,8 @@
 
 body{
   margin:0px;
-  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
-
+  /* font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif; */
+  font-family: 'Open Sans', sans-serif;
 }
 body > div{
   display:flex;
@@ -118,7 +118,7 @@ body > div{
   width: 100%;
 }
 
-.divItemOneTodos{
+.divItem{
   display:flex;
   flex-direction: row;
   flex-wrap: nowrap;
@@ -126,6 +126,7 @@ body > div{
   margin-top: 6px;
   width: 100%;
 }
+
 #iconTodos{
   display:flex;
   margin: 0;
@@ -136,20 +137,12 @@ body > div{
 }
 #idItemTodos{
   display:flex;
-  padding: 30px 0 0 0;
+  padding: 30px 0 0 3px;
   color:#868489;
   width: 70%;
   cursor:pointer;
 }
 
-.divItemTwoAtendidos{
-  display:flex;
-  flex-direction: row;
-  flex-wrap: nowrap;
-  justify-content: flex-start;
-  margin-top: 6px;
-  width: 100%;
-}
 #iconAtendidos{
   display: flex;
   color:#868489;
@@ -165,22 +158,15 @@ body > div{
   width: 70%;
 }
 
-.divItemThreeLixeira{
-  display:flex;
-  flex-direction: row;
-  flex-wrap: nowrap;
-  justify-content: flex-start;
-  margin-top: 6px;
-  width: 100%;
-}
-#iconLixeira{
+ .divItem .material-icons{
   display: flex;
   padding: 20px 0 0 13px;
   color:#868489;
   cursor:pointer;
-  width: 30%;
+  width: 30%; 
 }
-#idItemLixeira{
+
+.divItem .itemThree{
   display: flex;
   padding: 25px 0 0 7px;
   color:#868489;
@@ -188,10 +174,16 @@ body > div{
   width: 70%;
 }
 
-.activeNav{
-  color: #a7d21e;
-  cursor: none;
+
+
+.activeNav i, .activeNav span{
+  color: #a7d21e !important;
+  cursor: default !important;
+  font-weight: bold;
 }
+.activeNav i{
+  font-weight: normal;
+ }
 
 /*Fim Parte Lateral esquerda*/
 
