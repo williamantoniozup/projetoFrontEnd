@@ -13,10 +13,26 @@ function setColor(btn, color) {
         count = 0;
     }
 }
+document.querySelector('td.columnImgPerfil').onclick = function(){
+    alert('teste');
+}
 */
 
-var btnCheckPerfil = document.querySelector('btnCheckPerfil');
 
-btnCheckPerfil.onclick = function(){
 
-}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
