@@ -23,7 +23,7 @@ for (var i = 0; i < btnsNav.length; i++) {
 }
 
 
-
+//teste
 // Chamado sempre que o atributo readyState for alterado
 xmlhttp.onreadystatechange = function () {
     // Verifique se a solicitação de busca está concluída
@@ -56,8 +56,7 @@ function myFunction(response) {
             listProfile[i].phone +
             "</span></td><td class='columnCity'><span class='cidadePerfil'>" +
             listProfile[i]['location'].city +
-            "</span></td><td class'columnIcons'><i id='iconLixeiraPerfil' class='material-icons'>delete</i><i id='iconTodosPerfil' class='material-icons'>select_all</i><i id='iconCheckPerfil' class='material-icons'>done</i></td></tr>";
-
+            "</span></td><td class='columnIcons'><i id='iconLixeiraPerfil' class='material-icons'>delete</i><i id='iconTodosPerfil' class='material-icons'>select_all</i><i id='iconCheckPerfil' class='material-icons'>done</i></td></tr>";
     }
     out += "</table>";
     document.getElementById("divBorderTable").innerHTML = out;
