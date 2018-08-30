@@ -4,24 +4,14 @@ William Henrique
 
 */
 
+var btn_ChangeNav = document.querySelector("divItem");
+
+
+
 
 // Armazene o XMLHttpRequest e o local do arquivo JSON nas variáveis
 var xmlhttp = new XMLHttpRequest();
 var url = "https://randomuser.me/api/?results=10";
-
-
-
-
-var headerNav = document.getElementById("divNav");
-var btnsNav = headerNav.getElementsByClassName("divItem");
-for (var i = 0; i < btnsNav.length; i++) {
-    btnsNav[i].addEventListener("click", function () { // registra a espera de evento em um alvo
-        var current = document.getElementsByClassName("activeNav");
-        current[0].className = current[0].className.replace(" activeNav", "");
-        this.className += " activeNav"; // referente ao btnsNav
-    });
-}
-
 
 //teste
 // Chamado sempre que o atributo readyState for alterado
@@ -62,6 +52,32 @@ function myFunction(response) {
     document.getElementById("divBorderTable").innerHTML = out;
 
 }
+
+
+
+btn_ChangeNav.onclick = menuNavegar();
+
+
+
+
+
+
+
+// FUNCTIONS //
+
+
+function menuNavegar() {
+    var headerNav = document.getElementById("divNav");
+    var btnsNav = headerNav.getElementsByClassName("divItem");
+    for (var i = 0; i < btnsNav.length; i++) {
+        btnsNav[i].addEventListener("click", function () { // registra a espera de evento em um alvo
+            var current = document.getElementsByClassName("activeNav");
+            current[0].className = current[0].className.replace(" activeNav", "");
+            this.className += " activeNav"; // referente ao btnsNav
+        });
+    }
+}
+
 
 
 
