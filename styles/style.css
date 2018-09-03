@@ -366,7 +366,6 @@ tr.perfilRow > td.columnIcons > #iconLixeiraPerfil, #iconTodosPerfil{
   height: auto;
 }
 
-
 .columnIcons i {
   padding: 0 4px;
   cursor: pointer;
@@ -374,11 +373,10 @@ tr.perfilRow > td.columnIcons > #iconLixeiraPerfil, #iconTodosPerfil{
   height: auto;
 }
 
-#iconCheckPerfil:hover{
-  color: #a7d21e;
+.columnIcons i:hover{
+  color: #a7d21e !important;
   font-weight: bolder;
 }
-
 
 .rodape{
 
