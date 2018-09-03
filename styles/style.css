@@ -8,22 +8,15 @@
 
 body{
   margin:0px;
-  /* font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif; */
   font-family: 'Open Sans', sans-serif;
-  /* max-width: 100%;
-  height: auto;  */
 }
 body > div{
   display:flex;
   flex-flow:row wrap;  
-  /* max-width: 100%;
-  height: auto;  */
 }
 
 .containerMaster{
   display: flex;
-  /* max-width: 100%;
-  height: auto; */
   margin-left: 40px;
   margin-right: 40px;
   z-index: 0;
@@ -32,12 +25,7 @@ body > div{
 
 .header{
   display: flex;
-  /* flex-shrink: 0 2 20em; */
   background-color: #323c52;
-  /* top: -8px; */
-  /* margin-left:0; 25px */
-  /* margin-right:0; 25px */
-  /* width: 1300px;*/ 
   max-width: 100%;
   height: 70px;
   /*box-shadow:2px 2px 2px 1px #b9b9b9;box-shadow:0px 5px 5px -5px #b9b9b9;*/
@@ -55,12 +43,9 @@ body > div{
   flex: 1 1 20em;
   width: 20%;
   max-width: 100%;
-  /* height: 55px; */
   height: auto;
   margin: center;
-  /* margin-top: 10px; */
-  /* margin-left: 4px; */
-  flex:0.2;
+  flex:0.1;
 }
 
 .logoZupLeft{
@@ -68,8 +53,11 @@ body > div{
   max-width: 100%;
   height: auto;
   margin:5px;
+  min-width: 0;
+  min-height: 0;
 
 }
+
 
 /*Inicio campo de busca*/
 .divHeaderCenter{
@@ -78,23 +66,16 @@ body > div{
   flex-wrap: nowrap;
   align-items: center;
   align-content: center;
-  flex: 1 1 20em;
   background-color: #ffffff;
   padding: 9px;
   width: 70%;
   max-width: 100%;
   height: auto;
   top: 50%;
-  /* left: auto; */
-  /* bottom: 25px; */
   margin: auto;
-  /* margin-left:auto; */
-  /* margin-right:auto; */
-  /* vertical-align: -10px; */
   border-radius: 35px;
-  flex:0.60;
+  flex:0.65;
 }
-
 
 #iconLupa{
   display:flex;
@@ -105,7 +86,6 @@ body > div{
   height:auto;
   max-width:100%;
 }
-
 
 .divInputWithIcon input[type=text]{
   padding: 0 0 0 10px; 
@@ -120,20 +100,19 @@ body > div{
   font-size: 20px;
   text-shadow: 0 0.2px 0  #323c52;
 }
-
 /*Fim campo de busca*/
+
 
 /*Icone perfil top Right*/
 .divHeaderRight{
   display: flex;
-  flex: 1 1 20em;
   align-self: center;
   justify-content: flex-end;
-  margin: 30px;
+  margin: 20px;
   width: 10%;
   max-width: 100%;
   height: auto;
-  flex: 0.20;
+  flex: 0.10;
 }
 
 #iconPerson{
@@ -142,6 +121,8 @@ body > div{
   max-width: 100%;
   margin: 0;
   height: auto;
+  min-width: 0;
+  min-height: 0;
 }
 
 
