@@ -1,17 +1,29 @@
 
 
+*{
+  margin: 0;
+  padding: 0;
+}
+
+
 body{
   margin:0px;
   /* font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif; */
   font-family: 'Open Sans', sans-serif;
+  /* max-width: 100%;
+  height: auto;  */
 }
 body > div{
   display:flex;
-  flex-flow:row wrap;
+  flex-flow:row wrap;  
+  /* max-width: 100%;
+  height: auto;  */
 }
 
 .containerMaster{
   display: flex;
+  /* max-width: 100%;
+  height: auto; */
   margin-left: 40px;
   margin-right: 40px;
   z-index: 0;
@@ -20,12 +32,14 @@ body > div{
 
 .header{
   display: flex;
+  /* flex-shrink: 0 2 20em; */
   background-color: #323c52;
-  top: -8px;
-  margin-left:0; /*25px*/
-  margin-right:0; /*25px*/
-  width: 1300px;
-  height: 75px;
+  /* top: -8px; */
+  /* margin-left:0; 25px */
+  /* margin-right:0; 25px */
+  /* width: 1300px;*/ 
+  max-width: 100%;
+  height: 70px;
   /*box-shadow:2px 2px 2px 1px #b9b9b9;box-shadow:0px 5px 5px -5px #b9b9b9;*/
   box-shadow: 0 8px 10px -5px rgba(51, 51, 51, 0.544);
   /*responsive*/
@@ -37,69 +51,111 @@ body > div{
 /*Logo da zup top-left*/
 .divLogoZupLeft{
   display:flex;
-  width: 50px;
-  height: 55px;
-  margin-top: 10px;
-  margin-left: 4px;
+  justify-content: flex-start;
+  flex: 1 1 20em;
+  width: 20%;
+  max-width: 100%;
+  /* height: 55px; */
+  height: auto;
+  margin: center;
+  /* margin-top: 10px; */
+  /* margin-left: 4px; */
+  flex:0.2;
 }
 
+.logoZupLeft{
+  padding-left: 5px;
+  max-width: 100%;
+  height: auto;
+  margin:5px;
+
+}
 
 /*Inicio campo de busca*/
 .divHeaderCenter{
   display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  align-items: center;
+  align-content: center;
+  flex: 1 1 20em;
   background-color: #ffffff;
   padding: 9px;
-  width: 60%;
+  width: 70%;
+  max-width: 100%;
+  height: auto;
   top: 50%;
-  left: auto;
-  bottom: 25px;
+  /* left: auto; */
+  /* bottom: 25px; */
   margin: auto;
-  margin-left:auto;
-  margin-right:auto;
-  vertical-align: -10px;
+  /* margin-left:auto; */
+  /* margin-right:auto; */
+  /* vertical-align: -10px; */
   border-radius: 35px;
+  flex:0.60;
 }
 
-#iconLupa{display:flex;color:#a7d21e;height:max-content;width:auto;}
-#iconPerson{display:flex;color:white;}
+
+#iconLupa{
+  display:flex;
+  padding: 0 0 0 5px;
+  font-weight: bold;
+  font-size: 20px;
+  color:#a7d21e;
+  height:auto;
+  max-width:100%;
+}
+
 
 .inputWithIcon input[type=text]{
-  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
-  padding-left:40px;
-  padding-top: 5px; 
+  padding: 0 0 0 10px; 
   border: 0;
   outline: 0 none;
 }
+
 ::placeholder{
   color: #323c52;
   font-size: large;
+  /* font-weight: bolder; */
+  font-size: 20px;
   text-shadow: 0 0.2px 0  #323c52;
 }
 
-.inputWithIcon{
-  position: relative;
-}
-.inputWithIcon i{
-  position: absolute;  
-  left: 0;
-  top: -4.5px;
-  padding: 8px 12px;
-}
 /*Fim campo de busca*/
 
 /*Icone perfil top Right*/
 .divHeaderRight{
+  display: flex;
+  flex: 1 1 20em;
   align-self: center;
+  justify-content: flex-end;
   margin: 30px;
+  width: 10%;
+  max-width: 100%;
+  height: auto;
+  flex: 0.20;
 }
+
+#iconPerson{
+  display:flex;
+  color:white;
+  max-width: 100%;
+  margin: 0;
+  
+  height: auto;
+  
+}
+
 
 /*Inicio parte Lateral esquerda*/
 
 .navigation{
   display:flex;
   background-color: rgb(255, 255, 255);
-  height: 1300px;
-  width: 170px;
+  /* height: 1300px; */
+  /* width: 170px; */
+  max-width: 100%;
+  height: auto;
   /*margin-left: 30px;*/
   box-shadow: 5px 0 10px -5px rgba(51, 51, 51, 0.53);
   z-index: 1;
@@ -115,7 +171,9 @@ body > div{
   flex-direction: column;
   flex-wrap: nowrap;
   justify-content: flex-start;
-  width: 100%;
+  /* width: 100%; */
+  max-width: 100%;
+  height: auto;
 }
 
 .divItem{
@@ -124,7 +182,9 @@ body > div{
   flex-wrap: nowrap;
   justify-content: flex-start;
   margin-top: 6px;
-  width: 100%;
+  /* width: 100%; */
+  max-width: 100%;
+  height: auto;
 }
 
 #iconTodos{
@@ -132,14 +192,18 @@ body > div{
   margin: 0;
   padding: 25px 0 0 15px;
   color:#868489;
-  width: 30%;
+  /* width: 30%; */
+  max-width: 100%;
+  height: auto;
   cursor:pointer;
 }
 #idItemTodos{
   display:flex;
   padding: 30px 0 0 3px;
   color:#868489;
-  width: 70%;
+  /* width: 70%; */
+  max-width: 100%;
+  height: auto;
   cursor:pointer;
 }
 
@@ -149,13 +213,17 @@ body > div{
   padding:20px 0 0 16px;
   cursor:pointer;
   width: 30%;
+  max-width: 100%;
+  height: auto;
 }
 #idItemAtendidos{
   display: flex;
   padding:26px 0 0 4px;
   color:#868489;
   cursor:pointer;
-  width: 70%;
+  /* width: 70%; */
+  max-width: 100%;
+  height: auto;
 }
 
  .divItem .material-icons{
@@ -163,7 +231,9 @@ body > div{
   padding: 20px 0 0 13px;
   color:#868489;
   cursor:pointer;
-  width: 30%; 
+  /* width: 30%;  */
+  max-width: 100%;
+  height: auto;
 }
 
 .divItem .itemThree{
@@ -172,6 +242,8 @@ body > div{
   color:#868489;
   cursor:pointer;
   width: 70%;
+  max-width: 100%;
+  height: auto;
 }
 
 .activeNav i, .activeNav span{
@@ -190,8 +262,10 @@ body > div{
   background-color:#d8d8d830;
   padding: 0;
   /*responsive*/
+  max-width: 100%;
+  height: auto;
   order:3;
-  min-height:400px;
+  /* min-height:400px; */
   flex:1;
 }
 
@@ -203,6 +277,8 @@ body > div{
   flex-wrap: nowrap;
   justify-content: flex-start;
   margin: 50px;
+  max-width: 100%;
+  height: auto;
   box-shadow: 0 0 5px #8684897b;
   border-top-left-radius: 4px;
   border-top-right-radius: 4px;
@@ -211,6 +287,8 @@ body > div{
 .tableUsers{
   display: table;
   width: 100%;
+  /* max-width: 100%; */
+  /* height: auto; */
   border-collapse: collapse;
 
 }
@@ -221,68 +299,104 @@ body > div{
 
 tr.perfilRow{
   border-bottom: 2px solid #86848957;
+  /* max-width: 100%; */
+  /* height: auto; */
 }
 
 tr.perfilRow:last-child{
   border:0;
+  /* max-width: 100%; */
+  /* height: auto; */
 }
 tr.perfilRow>td.columnImgPerfil{
   padding-left: 15px;
   width: 4%;
+  /* max-width: 100%; */
 }
 tr.perfilRow>td.columnName{
-  width: 20%;
+  /* width: 20%; */
   padding-left: 10px;
+  max-width: 100%;
+  height: auto;
 }
 tr.perfilRow>td.columnEmail{
-  width: 15%;
+  /* width: 15%; */
   padding-right: 5px;
+  max-width: 100%;
+  height: auto;
 }
 tr.perfilRow>td.columnTel{
-  width: 15%;
+  /* width: 15%; */
   padding-right: 5px;
+  max-width: 100%;
+  height: auto;
 }
 tr.perfilRow>td.columnCity{
-  width: 20%;
+  /* width: 20%; */
+  max-width: 100%;
+  height: auto;
 }
 tr.perfilColumns > td.columnIcons{
-  width: 10%;
+  /* width: 10%; */
+  max-width: 100%;
+  height: auto;
 }
 
 tr.perfilRow > td.columnImgPerfil > .imgPerfil{
   margin: 0 1%;
-  width: 45px;
+  /* width: 45px; */
   right: 45px;
   border-radius: 50%;
   padding: 10px;
+  max-width: 100%;
+  height: auto;
 }
 
 tr.perfilRow > td.columnName{
   color: #323c52;
+  max-width: 100%;
+  height: auto;
 }
 
 tr.perfilRow > td.columnEmail, td.columnTel, td.columnCity{
   color:#868489c9;
+  max-width: 100%;
+  height: auto;
 }
 
 tr.perfilRow > td.columnIcons > #iconLixeiraPerfil, #iconTodosPerfil, #iconCheckPerfil{
   font-size: 20px;
   color:#86848997;
+  max-width: 100%;
+  height: auto;
 }
 tr.perfilRow > td.columnIcons > #iconLixeiraPerfil, #iconTodosPerfil{
   padding-right: 15px; 
   font-size: 20px;
   color:#86848997;
+  max-width: 100%;
+  height: auto;
 }
 .perfilRow span, img{
   cursor: pointer;
+  max-width: 100%;
+  height: auto;
 }
 
 
 .columnIcons i {
   padding: 0 4px;
   cursor: pointer;
+  max-width: 100%;
+  height: auto;
 }
+
+.rodape{
+
+}
+
+
+
 
 /*Fim da Parte Main*/
 

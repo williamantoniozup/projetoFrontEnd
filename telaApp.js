@@ -74,7 +74,7 @@ function selectProfileFunction() {
 }
 
 
-// FUNCTIONS //
+// -- FUNCTIONS -- //
 
 
 function menuNavegar() {
