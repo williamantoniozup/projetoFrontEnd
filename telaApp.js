@@ -57,21 +57,8 @@ function myFunction(response) {
 
 btn_ChangeNav.onclick = menuNavegar();
 
-selectProfileFunction();
 
-function selectProfileFunction() {
-    // <i id='iconCheckPerfil' class='material-icons'>done</i>
-    var headerTable = document.getElementById("divBorderTable");
-    var btnsCheckProfile = headerTable.getElementById("iconCheckPerfil");
-    for (var i = 0; i < btnsCheckProfile.length; i++) {
-        btnsCheckProfile[i].addEventListener("click",function(){
-            var current = document.getElementsByClassName("activeNav");
-            current[0].className = current[0].className.replace("activeNav");
-            this.className += "activeNav";
-        });
-    }
 
-}
 
 
 // -- FUNCTIONS -- //

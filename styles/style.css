@@ -12,11 +12,13 @@ body{
 }
 body > div{
   display:flex;
-  flex-flow:row wrap;  
+  flex-flow:row wrap; 
+  flex:1 100%; 
 }
 
 .containerMaster{
   display: flex;
+  flex-flow:row wrap;  
   margin-left: 40px;
   margin-right: 40px;
   z-index: 0;
@@ -40,17 +42,17 @@ body > div{
 .divLogoZupLeft{
   display:flex;
   justify-content: flex-start;
-  flex: 1 1 20em;
-  width: 20%;
-  max-width: 100%;
+  flex-shrink: 0;
+  max-width: auto;
   height: auto;
   margin: center;
   flex:0.1;
 }
 
 .logoZupLeft{
+  display: flex;
   padding-left: 5px;
-  max-width: 100%;
+  max-width: auto;
   height: auto;
   margin:5px;
   min-width: 0;
@@ -244,10 +246,10 @@ body > div{
   background-color:#d8d8d830;
   padding: 0;
   /*responsive*/
-  max-width: 100%;
+  /* max-width: 100%; */
   height: auto;
   order:3;
-  /* min-height:400px; */
+  min-height:100%;
   flex:1;
 }
 
@@ -264,23 +266,22 @@ body > div{
   box-shadow: 0 0 5px #8684897b;
   border-top-left-radius: 4px;
   border-top-right-radius: 4px;
+  flex:0.5;
 }
 
 .tableUsers{
   display: table;
-  width: 100%;
-  /* max-width: 100%; */
-  /* height: auto; */
+  max-width: 100%;
+  height: auto;
   border-collapse: collapse;
-
 }
 
-.tableUsers>.rowLabel{
+.tableUsers > .rowLabel{
   /* nao precisa */
 }
 
 tr.perfilRow{
-  border-bottom: 2px solid #86848957;
+  border-bottom: 3px solid #86848942;
   /* max-width: 100%; */
   /* height: auto; */
 }
@@ -290,30 +291,30 @@ tr.perfilRow:last-child{
   /* max-width: 100%; */
   /* height: auto; */
 }
-tr.perfilRow>td.columnImgPerfil{
+tr.perfilRow > td.columnImgPerfil{
   padding-left: 15px;
   width: 4%;
   /* max-width: 100%; */
 }
-tr.perfilRow>td.columnName{
+tr.perfilRow > td.columnName{
   /* width: 20%; */
   padding-left: 10px;
   max-width: 100%;
   height: auto;
 }
-tr.perfilRow>td.columnEmail{
+tr.perfilRow > td.columnEmail{
   /* width: 15%; */
   padding-right: 5px;
   max-width: 100%;
   height: auto;
 }
-tr.perfilRow>td.columnTel{
+tr.perfilRow > td.columnTel{
   /* width: 15%; */
   padding-right: 5px;
   max-width: 100%;
   height: auto;
 }
-tr.perfilRow>td.columnCity{
+tr.perfilRow > td.columnCity{
   /* width: 20%; */
   max-width: 100%;
   height: auto;
@@ -373,10 +374,15 @@ tr.perfilRow > td.columnIcons > #iconLixeiraPerfil, #iconTodosPerfil{
   height: auto;
 }
 
+#iconCheckPerfil:hover{
+  color: #a7d21e;
+  font-weight: bolder;
+}
+
+
 .rodape{
 
 }
-
 
 
 
