@@ -11,33 +11,33 @@ var btnNavAttended;
 
 // img, name, mail, phone, city;
 var person = {
-    img:null,
-    name:null,
-    mail:null,
-    phone:null,
-    city:null,
-    attended:false,
-    trash:false,
-    getImg: function(){return this.img;},
-    setImg: function(img){this.img = img;},
+    img: null,
+    name: null,
+    mail: null,
+    phone: null,
+    city: null,
+    attended: false,
+    trash: false,
+    getImg: function () { return this.img; },
+    setImg: function (img) { this.img = img; },
 
-    getName: function(){return this.name;},
-    setName: function(name){this.name = name;},
+    getName: function () { return this.name; },
+    setName: function (name) { this.name = name; },
 
-    getMail: function(){return this.mail;},
-    setMail: function(mail){this.mail = mail;},
+    getMail: function () { return this.mail; },
+    setMail: function (mail) { this.mail = mail; },
 
-    getPhone: function(){return this.phone;},
-    setPhone: function(phone){this.phone = phone;},
+    getPhone: function () { return this.phone; },
+    setPhone: function (phone) { this.phone = phone; },
 
-    getCity: function(){return this.city;},
-    setCity: function(city){this.city=city;},
+    getCity: function () { return this.city; },
+    setCity: function (city) { this.city = city; },
 
-    getAttended: function(){return this.attended;},
-    setAttended: function(attended){this.attended=this.attended;},
+    getAttended: function () { return this.attended; },
+    setAttended: function (attended) { this.attended = this.attended; },
 
-    getTrash: function(){return this.trash;},
-    setTrash: function(trash){this.trash = trash;}
+    getTrash: function () { return this.trash; },
+    setTrash: function (trash) { this.trash = trash; }
 }
 
 
@@ -52,6 +52,7 @@ xmlhttp.onreadystatechange = function () {
     if (this.readyState == 4 && this.status == 200) {
         myFunctionResponse(this.responseText);
     }
+    return this.response;
 }
 // Fazendo a chamada HTTP usando a variável url que foi especificado acima
 xmlhttp.open("GET", url, true);
@@ -59,18 +60,17 @@ xmlhttp.send();
 
 
 
-
 menuNavegar();
 
-// btn_ChangeNav.onclick = menuNavegar();
 
 
- 
+
+
+
 
 
 
 // -- FUNCTIONS -- //
-
 
 function myFunctionResponse(response) {
     // analisando a response
@@ -98,6 +98,8 @@ function myFunctionResponse(response) {
 }
 
 
+
+
 function menuNavegar() {
     var headerNav = document.getElementById("divNav");
     var btnsNav = headerNav.getElementsByClassName("divItem");
@@ -105,30 +107,37 @@ function menuNavegar() {
     for (var i = 0; i < btnsNav.length; i++) {
         btnsNav[i].addEventListener("click", function () { // registra a espera de evento em um alvo
             var current = document.getElementsByClassName("activeNav");
-            current[0].className = current[0].className.replace(" activeNav", "");
+            current[0].className = current[0].className.replace("activeNav", "");
             this.className += " activeNav"; // referente ao btnsNav
-            var menuDiv = this.getElementById();
-            if(menuDiv=="divNavTrash"){
-                moveAttended();
+            // document.getElementById("print").innerHTML = this.className.split(" ")[1];
+            if (this.className.split(" ")[1] == "divClassAttended") {
+                callAttended();
+            } else if (this.className.split(" ")[1] == "divClassAll") {
+                xmlhttp.onreadystatechange();
+            } else if (this.className.split(" ")[1] == "divClassTrash"){
+                callTrash()
             }
-        }); 
+        });
     }
+
 }
 
 
-function removeAllRow(){
+
+
+
+function removeAllRow() {
     var table = document.getElementById("tablePerfil");
-    while(table.rows.length>0){
-        table.deleteRow(0);
-    }
+    table.innerHTML = "";
 }
 
-function moveAttended(){
-    removeAllRows();
-}
-
-function moveTrash(){
+function callAttended() {
+    removeAllRow();
     
+}
+
+function callTrash() {
+    alert("teste");
 }
 
 
