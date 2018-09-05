@@ -11,7 +11,7 @@ var btnNavAttended;
 
 
 // img, name, mail, phone, city;
-var Person = function(img, name, mail, phone, city, attended, trash){     // objeto que consigo invocar funções por meio deles;
+var Person = function (img, name, mail, phone, city, attended, trash) {     // objeto que consigo invocar funções por meio deles;
     this.img = img;
     this.name = name;
     this.mail = mail;
@@ -43,15 +43,7 @@ xmlhttp.open("GET", url, true);
 xmlhttp.send();
 
 
-
 menuNavegar();
-
-
-
-
-
-
-
 
 
 // -- FUNCTIONS -- //
@@ -76,11 +68,12 @@ function myFunctionResponse(response) {
             "</span></td><td class='columnCity'><span class='cidadePerfil'>" +
             listProfile[i]['location'].city +
             "</span></td><td class='columnIcons'><i id='iconLixeiraPerfil' class='material-icons iconLixeiraTable'>delete</i><i id='iconTodosPerfil' class='material-icons iconTodosTable'>select_all</i><i id='iconCheckPerfil' class='material-icons iconCheckTable'>done</i></td></tr>";
-            insertObjectsList(listProfile[i]['picture'].medium, listProfile[i]['name'].first, listProfile[i].email, listProfile[i].phone, listProfile[i]['location'].city);
-            // listPersonsObjects.push(new Person(listProfile[i]['picture'].medium, listProfile[i]['name'].first, listProfile[i].email, listProfile[i].phone, listProfile[i]['location'].city, false, false));
+        insertObjectsList(listProfile[i]['picture'].medium, listProfile[i]['name'].first, listProfile[i].email, listProfile[i].phone, listProfile[i]['location'].city);
+        // listPersonsObjects.push(new Person(listProfile[i]['picture'].medium, listProfile[i]['name'].first, listProfile[i].email, listProfile[i].phone, listProfile[i]['location'].city, false, false));
     }
     out += "</table>";
     document.getElementById("divBorderTable").innerHTML = out;
+
 }
 
 
@@ -98,6 +91,11 @@ function menuNavegar() {
                 callAttended();
             } else if (this.className.split(" ")[1] == "divClassAll") {
                 xmlhttp.onreadystatechange();
+                var tableBody = document.getElementById("tablePerfil");
+                var btnsCheckTable = tableBody.getElementById("iconCheckPerfil");
+                var nameAttendedClicked = putEventClickOnIconCheckTable(btnsCheckTable);
+                setUpAttended();
+                //criar um evento de click e passar para a lista de attendedList[];
             } else if (this.className.split(" ")[1] == "divClassTrash") {
                 callTrash();
             }
@@ -106,7 +104,17 @@ function menuNavegar() {
 }
 
 
-function insertObjectsList(imgPerfil, namePerfil, emailPerfil, phonePerfil, cityPerfil){
+function putEventClickOnIconCheckTable(btnsCheckTable) {
+    var namePerfilRow;
+    for (var i; i < btnsCheckTable.length; i++) {
+        btnsCheckTable[i].addEventListener("click", function () {
+            var row = btnsCheckTable[i].get
+        });
+    }
+}
+
+
+function insertObjectsList(imgPerfil, namePerfil, emailPerfil, phonePerfil, cityPerfil) {
     listPersonsObjects.push(new Person(imgPerfil, namePerfil, emailPerfil, phonePerfil, cityPerfil, false, false));
 }
 

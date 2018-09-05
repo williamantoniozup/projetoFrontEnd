@@ -276,9 +276,9 @@ body > div{
   border-collapse: collapse;
 }
 
-.tableUsers > .rowLabel{
-  /* nao precisa */
-}
+/* .tableUsers > .rowLabel{
+   nao precisa 
+} */
 
 tr.perfilRow{
   border-bottom: 3px solid #86848942;
@@ -385,9 +385,9 @@ tr.perfilRow > td.columnIcons i{
   color: #f00000 !important;
 }
 
-.rodape{
+/* .rodape{
 
-}
+} */
 
 
 
