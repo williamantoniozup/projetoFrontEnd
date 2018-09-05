@@ -6,39 +6,23 @@ William Henrique
 
 var attendedList = [];
 var trashList = [];
+var listPersonsObjects = [];
 var btnNavAttended;
 
 
 // img, name, mail, phone, city;
-var person = {
-    img: null,
-    name: null,
-    mail: null,
-    phone: null,
-    city: null,
-    attended: false,
-    trash: false,
-    getImg: function () { return this.img; },
-    setImg: function (img) { this.img = img; },
-
-    getName: function () { return this.name; },
-    setName: function (name) { this.name = name; },
-
-    getMail: function () { return this.mail; },
-    setMail: function (mail) { this.mail = mail; },
-
-    getPhone: function () { return this.phone; },
-    setPhone: function (phone) { this.phone = phone; },
-
-    getCity: function () { return this.city; },
-    setCity: function (city) { this.city = city; },
-
-    getAttended: function () { return this.attended; },
-    setAttended: function (attended) { this.attended = this.attended; },
-
-    getTrash: function () { return this.trash; },
-    setTrash: function (trash) { this.trash = trash; }
+var Person = function(img, name, mail, phone, city, attended, trash){     // objeto que consigo invocar funções por meio deles;
+    this.img = img;
+    this.name = name;
+    this.mail = mail;
+    this.phone = phone;
+    this.city = city;
+    this.attended = attended;
+    this.trash = trash;
 }
+
+
+
 
 
 // Armazene o XMLHttpRequest e o local do arquivo JSON nas variáveis
@@ -91,13 +75,13 @@ function myFunctionResponse(response) {
             listProfile[i].phone +
             "</span></td><td class='columnCity'><span class='cidadePerfil'>" +
             listProfile[i]['location'].city +
-            "</span></td><td class='columnIcons'><i id='iconLixeiraPerfil' class='material-icons'>delete</i><i id='iconTodosPerfil' class='material-icons'>select_all</i><i id='iconCheckPerfil' class='material-icons'>done</i></td></tr>";
+            "</span></td><td class='columnIcons'><i id='iconLixeiraPerfil' class='material-icons iconLixeiraTable'>delete</i><i id='iconTodosPerfil' class='material-icons iconTodosTable'>select_all</i><i id='iconCheckPerfil' class='material-icons iconCheckTable'>done</i></td></tr>";
+            insertObjectsList(listProfile[i]['picture'].medium, listProfile[i]['name'].first, listProfile[i].email, listProfile[i].phone, listProfile[i]['location'].city);
+            // listPersonsObjects.push(new Person(listProfile[i]['picture'].medium, listProfile[i]['name'].first, listProfile[i].email, listProfile[i].phone, listProfile[i]['location'].city, false, false));
     }
     out += "</table>";
     document.getElementById("divBorderTable").innerHTML = out;
 }
-
-
 
 
 function menuNavegar() {
@@ -114,16 +98,17 @@ function menuNavegar() {
                 callAttended();
             } else if (this.className.split(" ")[1] == "divClassAll") {
                 xmlhttp.onreadystatechange();
-            } else if (this.className.split(" ")[1] == "divClassTrash"){
-                callTrash()
+            } else if (this.className.split(" ")[1] == "divClassTrash") {
+                callTrash();
             }
         });
     }
-
 }
 
 
-
+function insertObjectsList(imgPerfil, namePerfil, emailPerfil, phonePerfil, cityPerfil){
+    listPersonsObjects.push(new Person(imgPerfil, namePerfil, emailPerfil, phonePerfil, cityPerfil, false, false));
+}
 
 
 function removeAllRow() {
@@ -133,7 +118,8 @@ function removeAllRow() {
 
 function callAttended() {
     removeAllRow();
-    
+
+
 }
 
 function callTrash() {

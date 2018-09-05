@@ -29,7 +29,7 @@ body > div{
   display: flex;
   background-color: #323c52;
   max-width: 100%;
-  height: 70px;
+  height: 68px;
   /*box-shadow:2px 2px 2px 1px #b9b9b9;box-shadow:0px 5px 5px -5px #b9b9b9;*/
   box-shadow: 0 8px 10px -5px rgba(51, 51, 51, 0.544);
   /*responsive*/
@@ -282,14 +282,15 @@ body > div{
 
 tr.perfilRow{
   border-bottom: 3px solid #86848942;
-  /* max-width: 100%; */
-  /* height: auto; */
+  height: 64px;
+  max-width: 100%;
+ 
 }
 
 tr.perfilRow:last-child{
   border:0;
-  /* max-width: 100%; */
-  /* height: auto; */
+  height: 64px;
+  max-width: 100%;
 }
 tr.perfilRow > td.columnImgPerfil{
   padding-left: 15px;
@@ -330,8 +331,8 @@ tr.perfilRow > td.columnImgPerfil > .imgPerfil{
   /* width: 45px; */
   right: 45px;
   border-radius: 50%;
-  padding: 10px;
-  max-width: 100%;
+  /* padding: 10px; */
+  /* max-width: 100%; */
   height: auto;
 }
 
@@ -353,10 +354,12 @@ tr.perfilRow > td.columnIcons > #iconLixeiraPerfil, #iconTodosPerfil, #iconCheck
   max-width: 100%;
   height: auto;
 }
-tr.perfilRow > td.columnIcons > #iconLixeiraPerfil, #iconTodosPerfil{
+
+tr.perfilRow > td.columnIcons i{
   padding-right: 15px; 
   font-size: 20px;
-  color:#86848997;
+  /* color:#86848997; */
+  cursor: pointer;
   max-width: 100%;
   height: auto;
 }
@@ -366,16 +369,20 @@ tr.perfilRow > td.columnIcons > #iconLixeiraPerfil, #iconTodosPerfil{
   height: auto;
 }
 
-.columnIcons i {
+/* .columnIcons i {
   padding: 0 4px;
   cursor: pointer;
   max-width: 100%;
   height: auto;
-}
+} */
 
 .columnIcons i:hover{
-  color: #a7d21e !important;
+  color: #a7d21e !important; 
   font-weight: bolder;
+}
+
+#iconLixeiraPerfil:hover{
+  color: #f00000 !important;
 }
 
 .rodape{
