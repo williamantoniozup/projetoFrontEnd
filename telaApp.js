@@ -95,7 +95,7 @@ function showProfilesTable(profileList) {
         out += "<tr class='perfilRow'><td class='columnImgPerfil'><img class='imgPerfil' src=" +
             profileList[i].img +
             "></td><td class='columnName'><span class='nomePerfil'><b>" +
-            profileList.name +
+            profileList[i].name +
             "</b></span></td><td class='columnEmail'><span class='emailPerfil'>" +
             profileList[i].mail +
             "</span></td><td class='columnTel'><span class='telPerfil'>" +
