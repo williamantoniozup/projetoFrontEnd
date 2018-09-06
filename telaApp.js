@@ -11,14 +11,14 @@ var btnNavAttended;
 
 
 // img, name, mail, phone, city;
-var Person = function (img, name, mail, phone, city, attended, trash) {     // objeto que consigo invocar funções por meio deles;
+var Person = function (img, name, mail, phone, city, attendedBoolean, trashBoolean) {     // objeto que consigo invocar funções por meio deles;
     this.img = img;
     this.name = name;
     this.mail = mail;
     this.phone = phone;
     this.city = city;
-    this.attended = attended;
-    this.trash = trash;
+    this.attended = attendedBoolean;
+    this.trash = trashBoolean;
 }
 
 
@@ -58,10 +58,12 @@ function myFunctionResponse(response) {
     listPersonsObjects = [];
 
     for (i = 0; i < listProfile.length; i++) {
-        insertObjectsList(listProfile[i]['picture'].medium, listProfile[i]['name'].first, listProfile[i].email, listProfile[i].phone, listProfile[i]['location'].city);  
+        insertObjectsList(listProfile[i]['picture'].medium, listProfile[i]['name'].first, listProfile[i].email, listProfile[i].phone, listProfile[i]['location'].city);
     }
     showProfilesTable(listPersonsObjects);
- }
+    // attendedList.push(listPersonsObjects[2]);
+    chooseAttendedOrTrash(); //enviar perfil para a lista de atendidos ou para lixeira;
+}
 
 
 function menuNavegar() {
@@ -76,19 +78,19 @@ function menuNavegar() {
             this.className += " activeNav"; // referente ao btnsNav
             // document.getElementById("print").innerHTML = this.className.split(" ")[1];
             if (this.className.split(" ")[1] == "divClassAttended") {
-                callScreenAttended();
+                showProfilesTable(attendedList);
             } else if (this.className.split(" ")[1] == "divClassAll") {
-                xmlhttp.onreadystatechange();
-                //criar um evento de click e passar para a lista de attendedList[];
+                showProfilesTable(listPersonsObjects);
+                chooseAttendedOrTrash();
             } else if (this.className.split(" ")[1] == "divClassTrash") {
-                callScreenTrash();
+                showProfilesTable(trashList);
             }
         });
     }
 }
 
 function showProfilesTable(profileList) {
-    
+
     var out = "<table id='tablePerfil' class='tableUsers'>";
 
     for (i = 0; i < profileList.length; i++) {
@@ -102,36 +104,93 @@ function showProfilesTable(profileList) {
             profileList[i].phone +
             "</span></td><td class='columnCity'><span class='cidadePerfil'>" +
             profileList[i].city +
-            "</span></td><td class='columnIcons'><i id='iconLixeiraPerfil' class='material-icons iconLixeiraTable'>delete</i><i id='iconTodosPerfil' class='material-icons iconTodosTable'>select_all</i><i id='iconCheckPerfil' class='material-icons iconCheckTable'>done</i></td></tr>";
+            "</span></td><td id= 'iconsTd' class='columnIcons'><i id='iconLixeiraPerfil' class='material-icons'>delete</i><i id='iconTodosPerfil' class='material-icons'>select_all</i><i id='iconCheckPerfil' class='material-icons'>done</i></td></tr>";
     }
     out += "</table>";
     document.getElementById("divBorderTable").innerHTML = out;
 }
 
+function chooseAttendedOrTrash() {
 
-function putEventClickOnIconCheckTable(btnsCheckTable) {
+    var table = document.getElementById("tablePerfil");
+    
+    
+    // var table = document.getElementById("iconsTd");
+    // table.getElementsByClassName("material-icons")[2].onclick = function(){
+    //     setPersonToAtteded();
+    // }
 
-    var nameProfileRow;
 
-    for (var i; i < btnsCheckTable.length; i++) {
-        btnsCheckTable[i].addEventListener("click", function () {
-            var Row = document.getElementsByTagName("tr");
-            var Cells = Row.getElementsByTagName("td");
-            nameProfileRow = Cells[1];
-            return nameProfileRow;
-        });
-    }
+    
+    
+    // myButton.onclick = function(){
+    //     setUserName();
+    //   }
+     
+
+    // var btnCheckTable = table.getElementsByClassName("material-icons")[2];
+    // for(var i=0; i<btnCheckTable.length; i++){
+    //     btnCheckTable[i].addEventListener("check",setPersonToAtteded);
+    // }
+
+
+
+    // var table = document.getElementById("tablePerfil");
+    // var btnCheckTable = table.getElementsByClassName("material-icons")[2];
+    // for(var i=0; i<btnCheckTable.length; i++){
+    //     btnCheckTable[i].addEventListener("check",setPersonToAtteded);
+    // }
+    //iconLixeiraTable iconTodosTable iconCheckTable
+
+
+
+
+
+    // var btnCheckTable = document.getElementById("iconCheckPerfil");
+    // var btnTrashTable = document.getElementById("iconLixeiraPerfil");
+
+    // btnCheckTable.onclick = function(){
+    //     alert("entrou");
+    //     setPersonToAtteded();
+    // }
+
+    // btnTrashTable.onclick() = function(){
+    //     setPersonToTrash();
+    // }
+
+
+
+
 }
 
-function setUpAttended(nameAttendedClicked) {
+function setPersonToAtteded() {
 
-    for (var i = 0; i < listPersonsObjects.length; i++) {
-        if (listPersonsObjects[i].name === nameAttendedClicked) {
-            listPersonsObjects[i].attended = true;
-            attendedList.push(listPersonsObjects[i]);
-        }
-    }
+    alert('entrouuuuuuuu');
+    // listPersonsObjects[pos.rowIndex].attended = true;
+    // for (var i = 0; i < listPersonsObjects.length; i++) {
+    //     if (listPersonsObjects[i].attended === true) {
+    //         attendedList.push(listPersonsObjects[i]);
+    //     }
+    // }
 }
+
+
+function callScreenAttended() {
+
+}
+
+
+// function setUpAttended(nameAttendedClicked) {
+
+
+
+//     for (var i = 0; i < listPersonsObjects.length; i++) {
+//         if (listPersonsObjects[i].name === nameAttendedClicked) {
+//             listPersonsObjects[i].attended = true;
+//             attendedList.push(listPersonsObjects[i]);
+//         }
+//     }
+// }
 
 
 function insertObjectsList(imgPerfil, namePerfil, emailPerfil, phonePerfil, cityPerfil) {
@@ -145,23 +204,6 @@ function removeAllRow() {
     var table = document.getElementById("tablePerfil");
     table.innerHTML = "";
 }
-
-function callScreenAttended() {
-
-    removeAllRow();
-    var tableBody = document.getElementById("tablePerfil");
-    var btnsCheckTable = tableBody.getElementById("iconCheckPerfil");
-    var nameAttendedClicked = putEventClickOnIconCheckTable(btnsCheckTable);
-    setUpAttended(nameAttendedClicked);
-    showProfilesTable(attendedList); //var attendedList = [];
-}
-
-function callScreenTrash() {
-
-    removeAllRow();
-    alert("teste");
-}
-
 
 
 // push (inserir no final) shift(remover do ini)

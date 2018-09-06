@@ -348,7 +348,7 @@ tr.perfilRow > td.columnEmail, td.columnTel, td.columnCity{
   height: auto;
 }
 
-tr.perfilRow > td.columnIcons > #iconLixeiraPerfil, #iconTodosPerfil, #iconCheckPerfil{
+tr.perfilRow > td.columnIcons i{
   font-size: 20px;
   color:#86848997;
   max-width: 100%;
@@ -356,25 +356,25 @@ tr.perfilRow > td.columnIcons > #iconLixeiraPerfil, #iconTodosPerfil, #iconCheck
 }
 
 tr.perfilRow > td.columnIcons i{
-  padding-right: 15px; 
+  padding-right: 10px; 
   font-size: 20px;
-  /* color:#86848997; */
   cursor: pointer;
   max-width: 100%;
   height: auto;
 }
+
 .perfilRow span, img{
   cursor: pointer;
   max-width: 100%;
   height: auto;
 }
 
-/* .columnIcons i {
+.columnIcons i {
   padding: 0 4px;
   cursor: pointer;
   max-width: 100%;
   height: auto;
-} */
+} 
 
 .columnIcons i:hover{
   color: #a7d21e !important; 
