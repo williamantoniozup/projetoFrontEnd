@@ -1,14 +1,10 @@
 /*
 William Henrique
-
-
 */
-
 var attendedList = [];
 var trashList = [];
 var listPersonsObjects = [];
 var btnNavAttended;
-
 
 // img, name, mail, phone, city;
 var Person = function (img, name, mail, phone, city, attendedBoolean, trashBoolean) {     // objeto que consigo invocar funções por meio deles;
@@ -20,10 +16,6 @@ var Person = function (img, name, mail, phone, city, attendedBoolean, trashBoole
     this.attended = attendedBoolean;
     this.trash = trashBoolean;
 }
-
-
-
-
 
 // Armazene o XMLHttpRequest e o local do arquivo JSON nas variáveis
 var xmlhttp = new XMLHttpRequest();
@@ -42,14 +34,10 @@ xmlhttp.onreadystatechange = function () {
 xmlhttp.open("GET", url, true);
 xmlhttp.send();
 
-
 menuNavegar();
 
-
 // -- FUNCTIONS -- //
-
 function myFunctionResponse(response) {
-
     // analisando a response
     var jsonData = JSON.parse(response);
     var i;
@@ -64,7 +52,6 @@ function myFunctionResponse(response) {
     // attendedList.push(listPersonsObjects[2]);
     chooseAttendedOrTrash(); //enviar perfil para a lista de atendidos ou para lixeira;
 }
-
 
 function menuNavegar() {
 
@@ -112,55 +99,14 @@ function showProfilesTable(profileList) {
 
 function chooseAttendedOrTrash() {
 
-    var table = document.getElementById("tablePerfil");
-    
-    
-    // var table = document.getElementById("iconsTd");
-    // table.getElementsByClassName("material-icons")[2].onclick = function(){
-    //     setPersonToAtteded();
-    // }
+    var table = document.querySelector("#tablePerfil");
+    var btnIconcheck = table.querySelectorAll(".columnIcons > #iconCheckPerfil");
+    var btnIconTrash = table.querySelectorAll(".columnIcons > #iconLixeiraPerfil");
 
-
-    
-    
-    // myButton.onclick = function(){
-    //     setUserName();
-    //   }
-     
-
-    // var btnCheckTable = table.getElementsByClassName("material-icons")[2];
-    // for(var i=0; i<btnCheckTable.length; i++){
-    //     btnCheckTable[i].addEventListener("check",setPersonToAtteded);
-    // }
-
-
-
-    // var table = document.getElementById("tablePerfil");
-    // var btnCheckTable = table.getElementsByClassName("material-icons")[2];
-    // for(var i=0; i<btnCheckTable.length; i++){
-    //     btnCheckTable[i].addEventListener("check",setPersonToAtteded);
-    // }
-    //iconLixeiraTable iconTodosTable iconCheckTable
-
-
-
-
-
-    // var btnCheckTable = document.getElementById("iconCheckPerfil");
-    // var btnTrashTable = document.getElementById("iconLixeiraPerfil");
-
-    // btnCheckTable.onclick = function(){
-    //     alert("entrou");
-    //     setPersonToAtteded();
-    // }
-
-    // btnTrashTable.onclick() = function(){
-    //     setPersonToTrash();
-    // }
-
-
-
-
+    for(var i=0; i<btnIconcheck.length; i++){
+        btnIconcheck[i].addEventListener("click",setPersonToAtteded);
+        btnIconTrash[i].addEventListener("click",setPersonToTrash);
+    }
 }
 
 function setPersonToAtteded() {
@@ -175,38 +121,20 @@ function setPersonToAtteded() {
 }
 
 
-function callScreenAttended() {
-
+function setPersonToTrash() {
+    alert('entrou lixooooooo');
 }
-
-
-// function setUpAttended(nameAttendedClicked) {
-
-
-
-//     for (var i = 0; i < listPersonsObjects.length; i++) {
-//         if (listPersonsObjects[i].name === nameAttendedClicked) {
-//             listPersonsObjects[i].attended = true;
-//             attendedList.push(listPersonsObjects[i]);
-//         }
-//     }
-// }
-
 
 function insertObjectsList(imgPerfil, namePerfil, emailPerfil, phonePerfil, cityPerfil) {
 
     listPersonsObjects.push(new Person(imgPerfil, namePerfil, emailPerfil, phonePerfil, cityPerfil, false, false));
 }
 
-
 function removeAllRow() {
 
     var table = document.getElementById("tablePerfil");
     table.innerHTML = "";
 }
-
-
-// push (inserir no final) shift(remover do ini)
 
 
 
