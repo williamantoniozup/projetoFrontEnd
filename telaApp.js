@@ -103,14 +103,18 @@ function chooseAttendedOrTrash() {
     var btnIconcheck = table.querySelectorAll(".columnIcons > #iconCheckPerfil");
     var btnIconTrash = table.querySelectorAll(".columnIcons > #iconLixeiraPerfil");
 
-    for(var i=0; i<btnIconcheck.length; i++){
-        btnIconcheck[i].addEventListener("click",setPersonToAtteded);
-        btnIconTrash[i].addEventListener("click",setPersonToTrash);
+    for (var i = 0; i < btnIconcheck.length; i++) {
+        btnIconcheck[i].addEventListener("click", function(){
+            setPersonToAtteded(i);
+        });
+        btnIconTrash[i].addEventListener("click", setPersonToTrash, false);
     }
 }
 
 function setPersonToAtteded() {
 
+    var pos = i;
+    console.log(pos);
     alert('entrouuuuuuuu');
     // listPersonsObjects[pos.rowIndex].attended = true;
     // for (var i = 0; i < listPersonsObjects.length; i++) {
@@ -121,9 +125,11 @@ function setPersonToAtteded() {
 }
 
 
-function setPersonToTrash() {
-    alert('entrou lixooooooo');
-}
+function setPersonToTrash(evt) {
+
+
+    alert('entrou o lixooooooo');
+}   
 
 function insertObjectsList(imgPerfil, namePerfil, emailPerfil, phonePerfil, cityPerfil) {
 
