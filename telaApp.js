@@ -91,7 +91,7 @@ function showProfilesTable(profileList) {
             profileList[i].phone +
             "</span></td><td class='columnCity'><span class='cidadePerfil'>" +
             profileList[i].city +
-            "</span></td><td id= 'iconsTd' class='columnIcons'><i id='iconLixeiraPerfil' class='material-icons'>delete</i><i id='iconTodosPerfil' class='material-icons'>select_all</i><i id='iconCheckPerfil' class='material-icons'>done</i></td></tr>";
+            "</span></td><td id= 'iconsTd' class='columnIcons'><i id='iconLixeiraPerfil-"+i+"' class='material-icons iconClassTrashPerfil'>delete</i><i id='iconTodosPerfil' class='material-icons'>select_all</i><i id='iconCheckPerfil-"+i+"'class='material-icons iconClassCheckPerfil'>done</i></td></tr>";
     }
     out += "</table>";
     document.getElementById("divBorderTable").innerHTML = out;
@@ -100,22 +100,32 @@ function showProfilesTable(profileList) {
 function chooseAttendedOrTrash() {
 
     var table = document.querySelector("#tablePerfil");
-    var btnIconcheck = table.querySelectorAll(".columnIcons > #iconCheckPerfil");
-    var btnIconTrash = table.querySelectorAll(".columnIcons > #iconLixeiraPerfil");
+    var btnIconcheck = table.querySelectorAll(".columnIcons > .iconClassCheckPerfil");
+    var btnIconTrash = table.querySelectorAll(".columnIcons > .iconClassTrashPerfil");
 
     for (var i = 0; i < btnIconcheck.length; i++) {
-        btnIconcheck[i].addEventListener("click", function(){
-            setPersonToAtteded(i);
+        btnIconcheck[i].addEventListener("click", function () {
+            setPersonToAtteded(this.id);
         });
-        btnIconTrash[i].addEventListener("click", setPersonToTrash, false);
+        btnIconTrash[i].addEventListener("click", function(){
+            setPersonToTrash(this.id);
+        });
     }
 }
 
-function setPersonToAtteded() {
+function getIndexOfId(stringID){
 
-    var pos = i;
-    console.log(pos);
-    alert('entrouuuuuuuu');
+    var afterSplited = stringID.split('-');
+    console.log(afterSplited);
+
+}
+
+function setPersonToAtteded(stringID) {
+
+    // var pos = stringID;
+    var pos = getIndexOfId(stringID);
+    // console.log(pos);
+
     // listPersonsObjects[pos.rowIndex].attended = true;
     // for (var i = 0; i < listPersonsObjects.length; i++) {
     //     if (listPersonsObjects[i].attended === true) {
@@ -124,12 +134,12 @@ function setPersonToAtteded() {
     // }
 }
 
+function setPersonToTrash(stringID) {
 
-function setPersonToTrash(evt) {
-
-
+    var pos = stringID;
+    console.log(pos);
     alert('entrou o lixooooooo');
-}   
+}
 
 function insertObjectsList(imgPerfil, namePerfil, emailPerfil, phonePerfil, cityPerfil) {
 
