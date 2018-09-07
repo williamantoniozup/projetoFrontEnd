@@ -65,11 +65,13 @@ function menuNavegar() {
             this.className += " activeNav"; // referente ao btnsNav
             // document.getElementById("print").innerHTML = this.className.split(" ")[1];
             if (this.className.split(" ")[1] == "divClassAttended") {
+                removeAllRow();
                 showProfilesTable(attendedList);
             } else if (this.className.split(" ")[1] == "divClassAll") {
                 showProfilesTable(listPersonsObjects);
                 chooseAttendedOrTrash();
             } else if (this.className.split(" ")[1] == "divClassTrash") {
+                removeAllRow();
                 showProfilesTable(trashList);
             }
         });
@@ -91,7 +93,7 @@ function showProfilesTable(profileList) {
             profileList[i].phone +
             "</span></td><td class='columnCity'><span class='cidadePerfil'>" +
             profileList[i].city +
-            "</span></td><td id= 'iconsTd' class='columnIcons'><i id='iconLixeiraPerfil-"+i+"' class='material-icons iconClassTrashPerfil'>delete</i><i id='iconTodosPerfil' class='material-icons'>select_all</i><i id='iconCheckPerfil-"+i+"'class='material-icons iconClassCheckPerfil'>done</i></td></tr>";
+            "</span></td><td id= 'iconsTd' class='columnIcons'><i id='iconLixeiraPerfil-" + i + "' class='material-icons iconClassTrashPerfil'>delete</i><i id='iconTodosPerfil' class='material-icons'>select_all</i><i id='iconCheckPerfil-" + i + "'class='material-icons iconClassCheckPerfil'>done</i></td></tr>";
     }
     out += "</table>";
     document.getElementById("divBorderTable").innerHTML = out;
@@ -107,47 +109,43 @@ function chooseAttendedOrTrash() {
         btnIconcheck[i].addEventListener("click", function () {
             setPersonToAtteded(this.id);
         });
-        btnIconTrash[i].addEventListener("click", function(){
+        btnIconTrash[i].addEventListener("click", function () {
             setPersonToTrash(this.id);
         });
     }
 }
 
-function getIndexOfId(stringID){
+function getIndexOfId(stringID) {
 
     var afterSplited = stringID.split('-');
-    console.log(afterSplited);
-
+    return afterSplited[1];
 }
 
 function setPersonToAtteded(stringID) {
 
-    // var pos = stringID;
     var pos = getIndexOfId(stringID);
     // console.log(pos);
-
-    // listPersonsObjects[pos.rowIndex].attended = true;
-    // for (var i = 0; i < listPersonsObjects.length; i++) {
-    //     if (listPersonsObjects[i].attended === true) {
-    //         attendedList.push(listPersonsObjects[i]);
-    //     }
-    // }
+    if (listPersonsObjects[pos].attended != true) {
+        listPersonsObjects[pos].attended = true;
+        attendedList.push(listPersonsObjects[pos]);
+    }
 }
 
 function setPersonToTrash(stringID) {
-
-    var pos = stringID;
+    
+    var pos = getIndexOfId(stringID);
     console.log(pos);
-    alert('entrou o lixooooooo');
+    if (listPersonsObjects[pos].trash != true) {
+        listPersonsObjects[pos].trash = true;
+        trashList.push(listPersonsObjects[pos]);
+    }
 }
 
 function insertObjectsList(imgPerfil, namePerfil, emailPerfil, phonePerfil, cityPerfil) {
-
     listPersonsObjects.push(new Person(imgPerfil, namePerfil, emailPerfil, phonePerfil, cityPerfil, false, false));
 }
 
 function removeAllRow() {
-
     var table = document.getElementById("tablePerfil");
     table.innerHTML = "";
 }
