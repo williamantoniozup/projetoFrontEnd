@@ -48,7 +48,7 @@ function myFunctionResponse(response) {
     for (i = 0; i < listProfile.length; i++) {
         insertObjectsList(listProfile[i]['picture'].medium, listProfile[i]['name'].first, listProfile[i].email, listProfile[i].phone, listProfile[i]['location'].city);
     }
-    showProfilesTable(listPersonsObjects);
+    showProfilesTableScreenAll(listPersonsObjects);
     // attendedList.push(listPersonsObjects[2]);
     chooseAttendedOrTrash(); //enviar perfil para a lista de atendidos ou para lixeira;
 }
@@ -66,19 +66,19 @@ function menuNavegar() {
             // document.getElementById("print").innerHTML = this.className.split(" ")[1];
             if (this.className.split(" ")[1] == "divClassAttended") {
                 removeAllRow();
-                showProfilesTable(attendedList);
+                showProfilesTableScreenAttended(attendedList);
             } else if (this.className.split(" ")[1] == "divClassAll") {
-                showProfilesTable(listPersonsObjects);
+                showProfilesTableScreenAll(listPersonsObjects);
                 chooseAttendedOrTrash();
             } else if (this.className.split(" ")[1] == "divClassTrash") {
                 removeAllRow();
-                showProfilesTable(trashList);
+                showProfilesTableScreenTrash(trashList);
             }
         });
     }
 }
 
-function showProfilesTable(profileList) {
+function showProfilesTableScreenAll(profileList) {
 
     var out = "<table id='tablePerfil' class='tableUsers'>";
 
@@ -94,6 +94,48 @@ function showProfilesTable(profileList) {
             "</span></td><td class='columnCity'><span class='cidadePerfil'>" +
             profileList[i].city +
             "</span></td><td id= 'iconsTd' class='columnIcons'><i id='iconLixeiraPerfil' class='material-icons iconClassTrashPerfil-" + i + "'>delete</i><i id='iconTodosPerfil' class='material-icons'>select_all</i><i id='iconCheckPerfil' class='material-icons iconClassCheckPerfil-" + i + "'>done</i></td></tr>";
+    }
+    out += "</table>";
+    document.getElementById("divBorderTable").innerHTML = out;
+}
+
+function showProfilesTableScreenAttended(profileList) {
+
+    var out = "<table id='tablePerfil' class='tableUsers'>";
+
+    for (i = 0; i < profileList.length; i++) {
+        out += "<tr class='perfilRow'><td class='columnImgPerfil'><img class='imgPerfil' src=" +
+            profileList[i].img +
+            "></td><td class='columnName'><span class='nomePerfil'><b>" +
+            profileList[i].name +
+            "</b></span></td><td class='columnEmail'><span class='emailPerfil'>" +
+            profileList[i].mail +
+            "</span></td><td class='columnTel'><span class='telPerfil'>" +
+            profileList[i].phone +
+            "</span></td><td class='columnCity'><span class='cidadePerfil'>" +
+            profileList[i].city +
+            "</span></td><td id= 'iconsTd' class='columnIcons'><i id='iconLixeiraPerfil' class='material-icons iconClassTrashPerfil-" + i + "'>delete</i><i id='iconTodosPerfil' class='material-icons'>select_all</i></td></tr>";
+    }
+    out += "</table>";
+    document.getElementById("divBorderTable").innerHTML = out;
+}
+
+function showProfilesTableScreenTrash(profileList) {
+
+    var out = "<table id='tablePerfil' class='tableUsers'>";
+
+    for (i = 0; i < profileList.length; i++) {
+        out += "<tr class='perfilRow'><td class='columnImgPerfil'><img class='imgPerfil' src=" +
+            profileList[i].img +
+            "></td><td class='columnName'><span class='nomePerfil'><b>" +
+            profileList[i].name +
+            "</b></span></td><td class='columnEmail'><span class='emailPerfil'>" +
+            profileList[i].mail +
+            "</span></td><td class='columnTel'><span class='telPerfil'>" +
+            profileList[i].phone +
+            "</span></td><td class='columnCity'><span class='cidadePerfil'>" +
+            profileList[i].city +
+            "</span></td><td id= 'iconsTd' class='columnIcons'><i id='iconRemoveId' class='fa fa-remove iconRemoveClass"+i+"'></i><i id='iconUndoId' class='fas fa-undo-alt iconUndoClass-"+i+"'></i></td></tr>";
     }
     out += "</table>";
     document.getElementById("divBorderTable").innerHTML = out;

@@ -376,6 +376,7 @@ tr.perfilRow > td.columnIcons i{
   height: auto;
 } 
 
+
 .columnIcons i:hover{
   color: #a7d21e !important; 
   font-weight: bolder;
@@ -383,6 +384,14 @@ tr.perfilRow > td.columnIcons i{
 
 #iconLixeiraPerfil:hover{
   color: #f00000 !important;
+}
+
+#iconRemoveId:hover{
+  color: #f00000 !important;
+}
+
+#iconUndoId:hover{
+  color: #1730ad !important;
 }
 
 /* .rodape{
