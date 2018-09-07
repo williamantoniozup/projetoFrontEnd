@@ -381,34 +381,7 @@ tr.perfilRow > td.columnIcons i{
   font-weight: bolder;
 }
 
-#iconLixeiraPerfil-0:hover{
-  color: #f00000 !important;
-}
-#iconLixeiraPerfil-1:hover{
-  color: #f00000 !important;
-}
-#iconLixeiraPerfil-2:hover{
-  color: #f00000 !important;
-}
-#iconLixeiraPerfil-3:hover{
-  color: #f00000 !important;
-}
-#iconLixeiraPerfil-4:hover{
-  color: #f00000 !important;
-}
-#iconLixeiraPerfil-5:hover{
-  color: #f00000 !important;
-}
-#iconLixeiraPerfil-6:hover{
-  color: #f00000 !important;
-}
-#iconLixeiraPerfil-7:hover{
-  color: #f00000 !important;
-}
-#iconLixeiraPerfil-8:hover{
-  color: #f00000 !important;
-}
-#iconLixeiraPerfil-9:hover{
+#iconLixeiraPerfil:hover{
   color: #f00000 !important;
 }
 

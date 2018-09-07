@@ -93,7 +93,7 @@ function showProfilesTable(profileList) {
             profileList[i].phone +
             "</span></td><td class='columnCity'><span class='cidadePerfil'>" +
             profileList[i].city +
-            "</span></td><td id= 'iconsTd' class='columnIcons'><i id='iconLixeiraPerfil-" + i + "' class='material-icons iconClassTrashPerfil'>delete</i><i id='iconTodosPerfil' class='material-icons'>select_all</i><i id='iconCheckPerfil-" + i + "'class='material-icons iconClassCheckPerfil'>done</i></td></tr>";
+            "</span></td><td id= 'iconsTd' class='columnIcons'><i id='iconLixeiraPerfil' class='material-icons iconClassTrashPerfil-" + i + "'>delete</i><i id='iconTodosPerfil' class='material-icons'>select_all</i><i id='iconCheckPerfil' class='material-icons iconClassCheckPerfil-" + i + "'>done</i></td></tr>";
     }
     out += "</table>";
     document.getElementById("divBorderTable").innerHTML = out;
@@ -102,17 +102,31 @@ function showProfilesTable(profileList) {
 function chooseAttendedOrTrash() {
 
     var table = document.querySelector("#tablePerfil");
-    var btnIconcheck = table.querySelectorAll(".columnIcons > .iconClassCheckPerfil");
-    var btnIconTrash = table.querySelectorAll(".columnIcons > .iconClassTrashPerfil");
+    // var btnIconcheck = table.querySelectorAll(".columnIcons > .iconClassCheckPerfil");
+    var btnIconcheck = table.querySelectorAll(".columnIcons > #iconCheckPerfil");
+    // var btnIconTrash = table.querySelectorAll(".columnIcons > .iconClassTrashPerfil");
+    var btnIconTrash = table.querySelectorAll(".columnIcons > #iconLixeiraPerfil");
 
     for (var i = 0; i < btnIconcheck.length; i++) {
         btnIconcheck[i].addEventListener("click", function () {
-            setPersonToAtteded(this.id);
+            // setPersonToAtteded(this.id);
+            var listClassName = this.className
+            var stringClass = getSecondClassString(listClassName);
+            console.log(stringClass);
+            setPersonToAtteded(stringClass);
         });
         btnIconTrash[i].addEventListener("click", function () {
-            setPersonToTrash(this.id);
+            // setPersonToTrash(this.id);
+            var listClassName = this.className
+            var stringClass = getSecondClassString(listClassName);
+            setPersonToTrash(stringClass);
         });
     }
+}
+
+function getSecondClassString(listClassName) {
+    var string = listClassName.split(' ');
+    return string[1];
 }
 
 function getIndexOfId(stringID) {
@@ -132,7 +146,7 @@ function setPersonToAtteded(stringID) {
 }
 
 function setPersonToTrash(stringID) {
-    
+
     var pos = getIndexOfId(stringID);
     console.log(pos);
     if (listPersonsObjects[pos].trash != true) {
