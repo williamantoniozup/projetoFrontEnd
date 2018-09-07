@@ -73,6 +73,7 @@ function menuNavegar() {
             } else if (this.className.split(" ")[1] == "divClassTrash") {
                 removeAllRow();
                 showProfilesTableScreenTrash(trashList);
+                deleteFromTrashBin();
             }
         });
     }
@@ -135,7 +136,7 @@ function showProfilesTableScreenTrash(profileList) {
             profileList[i].phone +
             "</span></td><td class='columnCity'><span class='cidadePerfil'>" +
             profileList[i].city +
-            "</span></td><td id= 'iconsTd' class='columnIcons'><i id='iconRemoveId' class='fa fa-remove iconRemoveClass"+i+"'></i><i id='iconUndoId' class='fas fa-undo-alt iconUndoClass-"+i+"'></i></td></tr>";
+            "</span></td><td id= 'iconsTd' class='columnIcons'><i id='iconRemoveId' class='fa fa-remove iconRemoveClass-"+i+"'></i><i id='iconUndoId' class='fas fa-undo-alt iconUndoClass-"+i+"'></i></td></tr>";
     }
     out += "</table>";
     document.getElementById("divBorderTable").innerHTML = out;
@@ -152,14 +153,14 @@ function chooseAttendedOrTrash() {
     for (var i = 0; i < btnIconcheck.length; i++) {
         btnIconcheck[i].addEventListener("click", function () {
             // setPersonToAtteded(this.id);
-            var listClassName = this.className
+            var listClassName = this.className;
             var stringClass = getSecondClassString(listClassName);
             console.log(stringClass);
             setPersonToAtteded(stringClass);
         });
         btnIconTrash[i].addEventListener("click", function () {
             // setPersonToTrash(this.id);
-            var listClassName = this.className
+            var listClassName = this.className;
             var stringClass = getSecondClassString(listClassName);
             setPersonToTrash(stringClass);
         });
@@ -171,15 +172,20 @@ function getSecondClassString(listClassName) {
     return string[1];
 }
 
-function getIndexOfId(stringID) {
+function getThirdClassString(listClassName) {
+    var string = listClassName.split(' ');
+    return string[2];
+}
 
-    var afterSplited = stringID.split('-');
+function getIndexOfString(string) {
+
+    var afterSplited = string.split('-');
     return afterSplited[1];
 }
 
-function setPersonToAtteded(stringID) {
+function setPersonToAtteded(string) {
 
-    var pos = getIndexOfId(stringID);
+    var pos = getIndexOfString(string);
     // console.log(pos);
     if (listPersonsObjects[pos].attended != true) {
         listPersonsObjects[pos].attended = true;
@@ -187,9 +193,9 @@ function setPersonToAtteded(stringID) {
     }
 }
 
-function setPersonToTrash(stringID) {
+function setPersonToTrash(string) {
 
-    var pos = getIndexOfId(stringID);
+    var pos = getIndexOfString(string);
     console.log(pos);
     if (listPersonsObjects[pos].trash != true) {
         listPersonsObjects[pos].trash = true;
@@ -205,6 +211,34 @@ function removeAllRow() {
     var table = document.getElementById("tablePerfil");
     table.innerHTML = "";
 }
+
+
+function deleteFromTrashBin(){
+
+    var table = document.querySelector("#tablePerfil");
+    var btnIconRemove = table.querySelectorAll(".columnIcons > #iconRemoveId");
+
+    for(var i=0; i<btnIconRemove.length; i++){
+        btnIconRemove[i].addEventListener("click", function () {
+            var listClassName = this.className;
+            var stringClass = getThirdClassString(listClassName);
+            console.log(stringClass);
+            removePersonFromTrash(stringClass);
+        });
+    }
+
+}
+
+
+
+function removePersonFromTrash(string){
+
+    var pos = getIndexOfString(string);
+    console.log(pos);
+    trashList.splice(pos,1);
+    showProfilesTableScreenTrash(trashList);
+}
+
 
 
 
