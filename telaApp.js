@@ -229,6 +229,7 @@ function deleteFromTrashBin(){
 
 }
 
+//put comment
 
 
 function removePersonFromTrash(string){
