@@ -136,7 +136,7 @@ function showProfilesTableScreenTrash(profileList) {
             profileList[i].phone +
             "</span></td><td class='columnCity'><span class='cidadePerfil'>" +
             profileList[i].city +
-            "</span></td><td id= 'iconsTd' class='columnIcons'><i id='iconRemoveId' class='fa fa-remove iconRemoveClass-"+i+"'></i><i id='iconUndoId' class='fas fa-undo-alt iconUndoClass-"+i+"'></i></td></tr>";
+            "</span></td><td id= 'iconsTd' class='columnIcons'><i id='iconRemoveId' class='fa fa-remove iconRemoveClass-" + i + "'></i><i id='iconUndoId' class='fas fa-undo-alt iconUndoClass-" + i + "'></i></td></tr>";
     }
     out += "</table>";
     document.getElementById("divBorderTable").innerHTML = out;
@@ -213,12 +213,12 @@ function removeAllRow() {
 }
 
 
-function deleteFromTrashBin(){
+function deleteFromTrashBin() {
 
     var table = document.querySelector("#tablePerfil");
     var btnIconRemove = table.querySelectorAll(".columnIcons > #iconRemoveId");
 
-    for(var i=0; i<btnIconRemove.length; i++){
+    for (var i = 0; i < btnIconRemove.length; i++) {
         btnIconRemove[i].addEventListener("click", function () {
             var listClassName = this.className;
             var stringClass = getThirdClassString(listClassName);
@@ -229,16 +229,15 @@ function deleteFromTrashBin(){
 
 }
 
-//put comment
-
-
-function removePersonFromTrash(string){
+function removePersonFromTrash(string) {
 
     var pos = getIndexOfString(string);
     console.log(pos);
-    trashList.splice(pos,1);
+    trashList.splice(pos, 1);
     showProfilesTableScreenTrash(trashList);
 }
+
+//testando o git
 
 
 
