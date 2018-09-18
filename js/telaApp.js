@@ -27,6 +27,9 @@ xmlhttp.onreadystatechange = function () {
     // Verifique se a solicitação de busca está concluída
     if (this.readyState == 4 && this.status == 200) {
         myFunctionResponse(this.responseText);
+    } else {
+        console.log(xmlhttp.status);
+        console.log(xmlhttp.responseText);
     }
     return this.response;
 }
