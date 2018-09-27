@@ -1,5 +1,5 @@
 {
-    "objeto": [ 
+   "ArrayDeObjeto": [ 
         {
             "id": "profile1",
             "name": {
@@ -7,7 +7,12 @@
                 "middle": "name1Middle",
                 "end": "name1Last"
             },
-            "idade": 45
+            "idade": 45,
+            "array":[
+                1,
+                2,
+                3
+            ]
         },
         {
             "id":"profile2",
@@ -16,7 +21,12 @@
                 "middle": "name2Middle",
                 "end": "name2Last"
             },
-            "idade": 200
+            "idade": 200,
+            "array":[
+                4,
+                5,
+                6
+            ]
         }
     ]
 }

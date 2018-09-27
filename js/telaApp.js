@@ -24,7 +24,7 @@ var url = "https://randomuser.me/api/?results=10";
 //teste
 // Chamado sempre que o atributo readyState for alterado
 xmlhttp.onreadystatechange = function () {
-    // Verifique se a solicitação de busca está concluída
+    // Verifique se a solicitação de busca está concluída e ok
     if (this.readyState == 4 && this.status == 200) {
         myFunctionResponse(this.responseText);
     } else {
