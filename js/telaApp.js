@@ -240,7 +240,7 @@ function removePersonFromTrash(string) {
     showProfilesTableScreenTrash(trashList);
 }
 
-//testando o git teste teste
+//testando o git teste teste add new line to teste git
 
 
 
