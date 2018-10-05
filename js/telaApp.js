@@ -239,8 +239,7 @@ function removePersonFromTrash(string) {
     trashList.splice(pos, 1);
     showProfilesTableScreenTrash(trashList);
 }
-
-//testando o git teste teste add new line to teste git
+// testando git
 
 
 
