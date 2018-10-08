@@ -43,6 +43,8 @@ menuNavegar();
 function myFunctionResponse(response) {
     // analisando a response
     var jsonData = JSON.parse(response);
+    console.log("AquIIIIII");
+    console.log(jsonData);
     var i;
     var listProfile = jsonData.results;
 
